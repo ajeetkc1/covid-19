@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Covid-19 Nepal</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+
+    <style>
+            body { background-color: #25524E ; }
+        </style>
+<body>
+
+
+<div class="container">
+    <div class="jumbotron " style="background-color:#209289">
+        <h1 style="color:white;font-family:Monaco;">Covid-19 Global Report</h1>
+        <br>
+        <p>The coronavirus COVID-19 is affecting 213 countries and territories around the world and 2 international
+            conveyances.The list of countries and territories and their continental regional classification is based on the United Nations Geoscheme.</p>
+        <br>
+        <br>
+
+        <h1 class="display-4" style="color:white;font-family:Copperplate;" th:text="${totalReportedCases}"></h1>
+        <p class="lead">Total Cases reported as of today globally</p>
+        <hr class="my-4">
+        <p>
+            <span> New Cases Reported Since Previous day: </span>
+            <span style="color:white;font-family:Copperplate;" th:text="${totalNewCases}"> </span>
+        </p>
+    </div>
+
+
+    <table class="table table-dark">
+        <tr>
+            <th>Country/Region</th>
+            <th>State/Province</th>
+            <th>Total Cases</th>
+            <th>New Cases</th>
+
+        </tr>
+
+        <tr th:each="locationstat : ${locationstats}">
+            <td th:text="${locationstat.country}"></td>
+            <td th:text="${locationstat.state}"></td>
+            <td th:text="${locationstat.totalConfirmedCases}"> 0</td>
+            <td th:text="${locationstat.diffWithPrevDay}"> 0</td>
+
+        </tr>
+    </table>
+
+</div>
+</body>
+
+</html>
